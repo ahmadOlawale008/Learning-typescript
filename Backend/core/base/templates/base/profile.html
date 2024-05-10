@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lg:content-auto">
+    <form class="flex flex-col mx-2  my-4 w-full overflow-hidden gap-y-6" action="" method="post">
+      {% csrf_token %}
+      {{user_form.as_div}}
+      {{profile_form.as_div}}
+      <button
+        class="text-white self-start bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>

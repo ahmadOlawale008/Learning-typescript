@@ -1,0 +1,37 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+{% extends "admin/change_form.html" %}
+
+{% load i18n static %}
+{% block form_top %}
+{% if not is_popup %}
+<p>{% translate 'First, enter a username and password. Then, you’ll be able to edit more user options.' %}</p>
+{% else %}
+<p>{% translate "Enter a username and password." %}</p>
+{% endif %}
+<div class="form-row field-username">
+    <div>
+        <div class="flex-container flex flex-row">
+            <label class="required w-[200px]" for="id_email">Email:</label>
+            <input type="email" name="email"  class="vTextField w-80" maxlength="230" required="" id="id_email">
+        </div>
+    </div>
+</div>
+<div class="form-row field-username">
+    <div>
+        <div class="flex-container flex flex-row">
+            <label class="required w-[200px]" for="id_phone_number">Phone Number:</label>
+            <input type="tel" name="phone_number" class="vTextField w-80" maxlength="230" required="" id="id_phone_number">
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'admin/css/unusable_password_field.css' %}">
+{% endblock %}
+{% block admin_change_form_document_ready %}
+{{ block.super }}
+<script src="{% static 'admin/js/unusable_password_field.js' %}" defer></script>
+
+{% endblock %}

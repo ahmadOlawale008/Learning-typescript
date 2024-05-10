@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html{
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+}
+:root{
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1),
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color),
+}
+@layer base {
+  .open-sans{
+    font-family: "Open Sans", sans-serif!important;
+
+  }
+  .btn {
+    @apply focus:shadow-lg leading-5 align-middle px-3.5 py-2 active:shadow-lg transition-all duration-150 border-none shadow-md ease-in-out tracking-wider mx-1 text-base  font-medium text-white rounded-md;
+  }
+  .btn-small {
+    @apply text-[0.8rem] rounded p-2;
+  }
+  .btn-large {
+    @apply text-lg px-4 py-2.5;
+  }
+  .btn-primary-filled {
+    @apply bg-blue-600 active:bg-blue-500 font-normal hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300;
+  }
+  .btn-primary-outlined {
+    @apply inset-6  ring-inset active:ring-1 active:bg-[#0e0e0e0e] ring-blue-500 ring-1
+     text-slate-950 focus:ring-1 focus:outline-offset-1 focus:outline-blue-600 font-normal
+    focus:ring-blue-500;
+  }
+  .btn-secondary-filled {
+    @apply bg-violet-600 active:bg-violet-500 font-normal hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-300;
+  }
+  .btn-disabled{
+    @apply bg-slate-500/30 cursor-not-allowed active:bg-slate-500/30 font-normal hover:disabled:bg-slate-500/30 focus:outline-none focus:ring-2 focus:ring-violet-300;
+
+  }
+  .btn-secondary-outlined {
+    @apply inset-6  ring-inset active:ring-1 active:bg-[#0e0e0e0e] ring-violet-500 ring-1
+     text-slate-950 focus:ring-1 focus:outline-offset-1 font-normal focus:outline-violet-600
+    focus:ring-violet-500;
+  }
+  .btn-success-filled {
+    @apply bg-emerald-600 active:bg-emerald-500 hover:bg-emerald-700 focus:outline-none focus:ring-2 font-normal focus:ring-emerald-300; 
+  }
+  .btn-success-outlined {
+    @apply inset-6  ring-inset active:ring-1 active:bg-[#0e0e0e0e] ring-emerald-500 ring-1
+     text-slate-950 focus:ring-1 focus:outline-offset-1 focus:outline-emerald-600 font-normal
+    focus:ring-emerald-500;
+  }
+    .btn-gray-outlined {
+    @apply inset-6  ring-inset active:ring-1 active:bg-[#0e0e0e0e] ring-gray-500 ring-1
+     text-slate-950 focus:ring-1 focus:outline-offset-1 focus:outline-gray-600 font-normal
+    focus:ring-gray-500;
+  }
+  .btn-dark{
+    @apply inset-6 text-white bg-zinc-950 active:bg-zinc-900
+  }
+  .chip {
+    @apply my-2 inline-block rounded-full bg-neutral-200 px-6 pb-2 pt-2.5 text-xs font-medium 
+    uppercase leading-normal text-neutral-700 shadow-md 
+    transition duration-150 ease-in-out hover:bg-neutral-300 
+    hover:shadow-lg focus:bg-neutral-300 focus:shadow-lg 
+    focus:outline-none focus:ring-0 active:bg-neutral-400 
+    active:shadow-lg dark:bg-neutral-600 dark:text-neutral-200
+     dark:hover:bg-neutral-500 dark:focus:bg-neutral-500
+      dark:active:bg-neutral-400;
+  }
+
+  .form-control{
+    @apply  bg-white font-medium outline-1 outline-slate-950 outline-double
+     focus:ring-0 focus:outline-1 focus:outline-double inline-flex items-center
+     focus:outline-neutral-600  rounded-sm ring-slate-950 ;
+  }
+  .form-control-medium{
+    @apply px-2 py-3 my-3 leading-6
+  }
+  .form-control-small{
+    @apply text-xs  px-1 py-2 my-2 leading-3
+  }
+  .form-control-large{
+    @apply text-sm px-6 py-2 my-4 leading-9
+  }
+  .animate-ring-light{
+    position: relative;
+  }
+  .animate-ring-light::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    @apply absolute ring-[2px] ring-blue-100 delay-100 rounded-full animate-ping;
+
+  }
+  .animate-ring-light::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    @apply absolute ring-[1px] ring-blue-100  rounded-full animate-ping;
+  }
+
+}

@@ -1,0 +1,33 @@
+{
+    "careers": [
+        {
+            "id": 1,
+            "title": "Senior React Developer",
+            "salary": 40000,
+            "location": "London, UK"
+        }, {
+            "id": 2,
+            "title": "Plumber",
+            "salary": 80000,
+            "location": "Bowser's castle"
+        },
+        {
+            "id": 3,
+            "title": "Gym Leader",
+            "salary": 10000,
+            "location": "Kanto Region"
+        },
+        {
+            "id": 4,
+            "title": "Vue Developer",
+            "salary": 100000,
+            "location": "USA"
+        }, 
+        {
+            "id":5,
+            "title": "Moblile Apps Developer",
+            "salary": 9000000,
+            "location": "Germany"
+        }
+    ]
+}
