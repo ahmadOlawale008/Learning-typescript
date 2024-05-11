@@ -20,7 +20,6 @@ from rest_framework.filters import SearchFilter
 from django.core.mail import send_mail
 
 
-
 class PostUserWritePermission(BasePermission):
     message = "Editing posts is restricted to the author only"
     
@@ -28,7 +27,6 @@ class PostUserWritePermission(BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
         return obj.author == request.user
-
 
 
 class PostList(generics.ListCreateAPIView):
@@ -50,9 +48,20 @@ class PostDetail(generics.RetrieveAPIView, PostUserWritePermission):
     def get_object(self):
         item = self.kwargs.get("pk")
         return get_object_or_404(Post, slug=item)
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser 
 
-class UserAvatarUpload(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-    parser_classes = [MultPartPaser, FormParser]
+class AdminPostUpload(APIView):
+    parser_classes = [MultiPartParser, FormParser]
     def post(self, request, format=None):
-        pass
+        print(request.data)
+        serializer = PostSerializers(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK )
+
+class AdminPostDetail(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = PostSerializers

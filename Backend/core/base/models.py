@@ -99,7 +99,7 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     def __str__(self):
         return self.name
-
+from django.shortcuts import get_object_or_404
 def upload_to(instance, filename):
     return f'posts/{filename}'
 class Post(models.Model):

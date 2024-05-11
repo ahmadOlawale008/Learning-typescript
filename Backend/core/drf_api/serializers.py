@@ -128,5 +128,5 @@ class UserSerializer(serializers.ModelSerializer):
 class PostSerializers(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ["id", "title", "slug", "author", "category", "image", "status"]
+        fields = ["id", "title", "author", "category", "image", "status"]
         extra_kwargs = {"slug": {"read_only": True}}
